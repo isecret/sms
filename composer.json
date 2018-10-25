@@ -1,0 +1,22 @@
+{
+    "name": "isecret\/sms",
+    "description": "A sms package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Secret",
+            "email": "i@wangmao.me"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "monolog/monolog": "^1.23",
+        "phpunit/phpunit": "^7.4",
+        "mockery/mockery": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Isecret\\Sms\\": "src"
+        }
+    }
+}
