@@ -1,6 +1,6 @@
 {
     "name": "isecret\/sms",
-    "description": "A sms package",
+    "description": "一信通短信 SDK",
     "license": "MIT",
     "authors": [
         {
