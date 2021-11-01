@@ -1,6 +1,6 @@
 <h1 align="center"> sms </h1>
 
-<p align="center">一信通短信 SDK。</p>
+<p align="center">E易信通短信 SDK。</p>
 
 
 ## Installing
