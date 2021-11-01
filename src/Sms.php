@@ -23,7 +23,7 @@ class Sms
         ],
         'log_path' => '/tmp/sms.log'
     ];
-    
+
     /**
      * Guzzle 可选请求参数
      *
@@ -51,7 +51,7 @@ class Sms
      * @var string
      */
     protected $contents;
-    
+
     /**
      * 构造函数
      *
@@ -62,7 +62,7 @@ class Sms
     {
         $this->config = $config;
         $this->guzzleOptions = $guzzleOptions;
-        
+
     }
 
     /**
@@ -124,11 +124,11 @@ class Sms
     public function request()
     {
         try {
-            $response = $this->getHttpClient()->get($this->url, [
-                'query' => $this->getQuery(),
+            $response = $this->getHttpClient()->post($this->url, [
+                'form_params' => $this->getFrom(),
                 'timeout' => $this->config['timeout'],
             ])->getBody()->getContents();
-            
+
             $response = iconv('gbk', 'utf-8', $response);
             parse_str($response, $result);
 
@@ -145,15 +145,15 @@ class Sms
             $this->log()->error($e->getMessage());
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
-        
+
     }
 
     /**
-     * 获取请求参数
+     * 获取 FROM 表单参数
      *
      * @return void
      */
-    public function getQuery()
+    public function getFrom()
     {
         return [
             'SpCode' => $this->config['account']['spcode'],
